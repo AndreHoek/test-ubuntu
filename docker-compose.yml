@@ -1,7 +1,8 @@
-version: '3.8'
+# docker compose V2 ignores this field, but it is required for V1, so leaving it here for compatibility. V2 will default to the latest version if this field is missing.
+# version: '3.8'
 
 services:
-  hello-world:
+  hello-world-service:  # Service name
     build: .
     ports:
       - "5001:5000" # Map port 5000 in the container to port 5001 on the host
@@ -9,4 +10,4 @@ services:
       - FLASK_ENV=development
     volumes:
       - .:/app
-    container_name: hello-world-app
+    container_name: hello-world-container # Container name for easier reference
